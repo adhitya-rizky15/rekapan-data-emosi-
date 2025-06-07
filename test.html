@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Test Kamera</title></head>
+  <body>
+    <h1>Test Kamera</h1>
+    <video id="video" width="640" height="480" autoplay></video>
+
+    <script>
+      const video = document.getElementById('video');
+
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          video.srcObject = stream;
+          console.log("📷 Kamera aktif");
+        })
+        .catch(err => {
+          console.error("🚫 Gagal akses kamera:", err);
+        });
+    </script>
+  </body>
+</html>
